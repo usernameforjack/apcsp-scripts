@@ -1,0 +1,15 @@
+#!/bin/bash
+
+RASBER=( rpi01 rpi02 rpi03 rpi04 rpi05 rpi06 rpi07 rpi08 rpi09 rpi10 rpi11 rpi12 rpi13 rpi14 rpi15 rpi16 rpi17 rpi18 )
+
+for i in ${RASBER[@]}
+do
+ping -c 1 -W 1 $i &>/dev/null
+if  [ $? -eq 1 ];
+then 
+echo $i dead
+else
+echo $i alive
+fi
+done
+
